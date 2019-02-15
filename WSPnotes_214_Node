@@ -1,0 +1,35 @@
+http is literally send it text messages tcp socket send message over to server and if server is listening, then the server will get that text message and will process it and decide what to do. and you can these text messages! you can send them yourself using a socket library. node gets message and once you have node how are we going to deal with that? 
+
+process those text message or at least a part of it to delegate to different functions. want to be able to delegate and in orer to do that there is a popular library called express. parse apart text message and delegate.
+
+So we are using node and express. express is the controller. it is an mvc (model view controller-- where to send the message to). express can also handle the view part..murky for us, we wnat our server to send json to client and client handling view. use express as a REST server. never send back html -- plain json. streaming data back to client and client decides how to present it all.
+
+every time you use npm you create a package and eventually becomes a package tree. step one, create a package and it might be shared one day with a whole bunch of other people.
+
+
+video guy has two npm packages one for cleint one for serever--we will have one with mix client/server.
+
+json is native to server. json must be valid, then it wont be parsed by parsers. cannot have trailing ,
+
+how do we tell npm what packages we depend on? they ae specified by using keyword "dependenies -- packages we depend on
+
+Many different kind of dependencies 1)main ones we need to know right now to run our website: express, vue, 
+when we are 2)developing: webpack, vue-cli, nodemon (don't need to run app, but need when we are developing)
+3)global dependencies, doesn't have to do with your package, not listed because they are not for your specific package, don't pollute global scope. reduce these as much as possible.
+4) peer dependencies, your package depends on it, but certain packages that we use that vue depends on, but it is not actually installed by npm. must install manually. 
+
+vscode what pckage.json is and it suggest hey you may want to have this...first way to add to your list of dependencies is to type by hand, but can be cumbersome. but vscode will send message to npm search package and giving you on the spot "intellisense"
+you can type npm install
+
+control space default for intellisense, will give you version number
+
+every time you fix a bug, you increase the least sig fig number (all the way on the right) 
+minor versions are for adding features that do not break backward compatibility...but sometimes adding new feature can break code...so developers try and test as much as possible. anything that works in previous versions should work all the way through i.e 4.0.0 to 4.whatever
+when no longer backward compatible, then you change you major version. semantic versioning. specific rules on changing numbers in software versions.
+most opens source pacakges in the world follow this pattern! when you start developing a web application, you are using express, which version do you want to use? if you start with 4.16.4. download it program it works perfect. but what happens when 4.16.5. what do we want npm to do? do we to stick with .4 or .5? choose .5 because that means it fixed a bug! we don't want that bug either. also if they go to 4.30 and we trust the company, go with them to 4.30 as it is backward compatible. the ~means stick to 4.16 and at least 4 but go with patch as high as possible like 4.16.17
+if we use the ^ install packages from 4.whatever but never anything higher than 4! we care about new features. use ^ most often
+
+
+keep track of package-lock.json...but my npm install did not generate a package-lock.json WHY because npm is not at npm 5.0.0 or higher. 
+
+once a program is listened to on a port no other program can be on that port. 
