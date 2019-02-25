@@ -1,0 +1,21 @@
+Reminder: relational databases are very structure/rigid. Need to set them up in advance. Only can use the structure you set up.
+We will use raw MySQL and Node--different from the youtube tutorial.
+
+When it comes to MySQL and running it on wyverna and connecting it to our Node and having our middleware/application server
+Javascript running in your browser can never access/ make direct connection to databases
+
+JS sends http messages to Node and receives http messages back. 
+
+Three teir: whats running in browser, application server, database server. 
+
+The node server connecting to MySQL has one more thing. Right now we are inside the SUNY NP firewall,
+or if you are working from Node. You will have to have a way to end MySQL messages back and forth
+between database and Node. So you will need to bypass firewall. One way: SSH (bitvise) it is a Windows app. What about Linux/Ubuntu?
+https://www.techrepublic.com/blog/five-apps/five-easy-to-use-secure-shell-clients/
+
+bitvise does "tunneling" for you. https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding
+"Port forwarding via SSH (SSH tunneling) creates a secure connection between a local computer and 
+a remote machine through which services can be relayed. 
+Because the connection is encrypted, SSH tunneling is useful for 
+transmitting information that uses an unencrypted protocol, such as IMAP, VNC, or IRC. "
+
