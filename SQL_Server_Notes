@@ -19,3 +19,5 @@ a remote machine through which services can be relayed.
 Because the connection is encrypted, SSH tunneling is useful for 
 transmitting information that uses an unencrypted protocol, such as IMAP, VNC, or IRC. "
 
+2/26 fixed bugs.
+
