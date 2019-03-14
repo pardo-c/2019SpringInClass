@@ -1,4 +1,4 @@
-const conn = require('./mysql_connections');
+const conn = require('./mysql_connection');
 
 const model = {
     getAll(cb){
@@ -7,13 +7,13 @@ const model = {
         });    
     },
     get(id, cb){
-
+        conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id, (err, data) => {
+            cb(err, data[0]);
+        });    
     },
     add(input, cb){
-        // sql server cannot do this kind of validation.
         if(input.Password.length < 8){
-            cb(Error('A longer password is required'));
-            // do not want function to play out so return
+            cb(Error('A longer Password is Required'));
             return;
         }
         conn.query( "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,created_at) VALUES (?)",
@@ -23,8 +23,8 @@ const model = {
                             cb(err);
                             return;
                         }
-                        model.get(data.insertId, (err,data) =>{
-                            cb(err, data); 
+                        model.get(data.insertId, (err, data)=>{
+                            cb(err, data);
                         })
                     }
         );    

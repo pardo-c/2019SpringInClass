@@ -1,30 +1,33 @@
 const express = require('express');
-const conn = require('../models/users.js');
+const user = require('../models/user');
+
 const app = express.Router();
 
-app.get("/",(eq,res)=>{     //every action has a method and a path / is the root of this controller
-                            // express will execute this function.
-    console.log('Roses are red')                        
+app.get("/", (req, res) => {
+
     user.getAll((err, data) => {
-        console.log('violets are blue')
-        if(err) throw err;  // once function is called,call send method
+        if(err) throw err;
         res.send(data);
-
     });
-app.get("/:id",(eq,res)=>{     //every action has a method and a path / is the root of this controller
-    user.get(req.params.id,(err, data) => {
-        console.log('violets are blue')
-        if(err) throw err;  // once function is called,call send method
+
+});
+app.get("/:id", (req, res) => {
+
+    user.get(req.params.id, (err, data) => {
+        if(err) throw err;
         res.send(data);
+    });
 
 });
-   
-    console.log('aysnc is great')
-});
-
 app.post("/", (req, res) => {
 
-    user.add({FirstName: "Steve", LastName: "Irwin", Password: BobbyTables})
-})
+    console.log(req.body);
+    user.add(req.body, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 
 module.exports = app;
